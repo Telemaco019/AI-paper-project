@@ -18,6 +18,9 @@
 
 
 \usepackage[utf8]{inputenc}
+\usepackage{biblatex}
+\addbibresource{bibliography.bib}
+\DeclareFieldFormat{url}{Available at: \url{#1}}
 
 
 
@@ -74,14 +77,30 @@ Abstract still to write
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
+In this paper we approach the problem of the exploration of unknown environments, a study whose objective is to maximize the acquisition of information from an unknown environment in the shortest time possible. Currently the most important fields of application for this knowledge are war and space exploration. War applies these technologies for the exploration of dangerous enemy fields, in search of potential traps or bombs, and space exploration utilizes them for the exploration of properties of different planets. All these applications involve a robotic, automated exploration of environments as it is too dangerous for humans to perform such tasks.
+
+Two types of agent architecture approaches for environment explorations have been defined, single agent and Multi Agent. While single agents may be very well designed, it has been proven that they fall short when it comes to the exploration of very large and complex environments, as such, for these environments, a Multi Agent approach is used, in order to reduce mapping time. 
+
+Adopting a Multi Agent architecture, in this work we focus mainly on the coordination aspects of the agents, namely on how each agent decides which locations it should explore next. In our approach, each agent takes this decision by communicating with all the other peers and carrying out an auction, in which every agent can make a bid for a specific location to visit. Like it has been proposed in recent papers regarding this field, we also use a partially predictive mapping approach, associating an interest level to each object and making the agents approach only the ``interesting'' objects, while making a predictive classification at a certain range of all the other ones. With these two techniques, we aim to reduce the mapping time as much as possible, considering the trade-off with the error degree introduced by the predictions. 
+
+
 
 
 
 \section{State of the Art}
+The mapping of an unknown environment through robots is still an active topic in robotic and AI research and it has been accurately described in \cite{thrun2002robotic}. The Multi Agent approach to this problem has already been used in several works, like for instance in \cite{macedo2004exploration}. In this work the authors face the problem using a master-slave architecture and motivational agents endowed of various ``feelings'', which affect the decision making process of the agents that defines their behaviour during the exploration. 
+
+% Not sure about this, seems like there are not object to classify but only locations to explore 
+In \cite{sheng2005peer} a Multi Agent approach is used as well, adopting however a peer-to-peer architecture in order to increase the reliability of the system. 
+
+
+In both of the previous works however the authors don't consider the cost of fully identifying an object, which in real-life scenarios take a considerable amount of time. In the works 
+
+The works \cite{tavaresgaspar} and \cite{macedo2011uncertainty} face the problem using a Multi Agent approach, in which the authors aim to reduce the exploration time by using a partially predictive mapping which allows agents to classify some objects at distance without approaching them and, at the same time, without losing too much information. The agents are also provided with reasoning capabilities, which allow them to rate unknown objects and assign them an interest level: by making the agents approach only the high-interest objects, the authors aim to further reduce the mapping time of the environment. Both of the works are based on a master-slave architecture, in which a single entity (the \emph{broker}) coordinates all the slaves (the \emph{explorers}) by assigning to each of them the next move when they request new targets to explore. 
+
 
 \section{Conclusions}
 
-A conclusion section is not required. Although a conclusion may review the main points of the paper, do not replicate the abstract as the conclusion. A conclusion might elaborate on the importance of the work or suggest applications and extensions. 
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
@@ -106,8 +125,6 @@ Appendixes should appear before the acknowledgment.
 \section*{ACKNOWLEDGMENT}
 
 
-
-
-
+\printbibliography
 
 \end{document}
